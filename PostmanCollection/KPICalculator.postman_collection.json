@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "30c37b4f-3612-46ef-a8c4-353ff91ec48f",
+		"name": "KPICalculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "59037120",
+		"_collection_link": "https://nandananakul3-2333405.postman.co/workspace/Nandana-Nakul's-Workspace~0ca8fac7-8e86-4ac2-84ea-0981339ef049/collection/59037120-30c37b4f-3612-46ef-a8c4-353ff91ec48f?action=share&source=collection_link&creator=59037120"
+	},
+	"item": [
+		{
+			"name": "get all employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BASE_URL}}/api/employees"
+			},
+			"response": []
+		},
+		{
+			"name": "get employees of team",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/api/employees?team=QA",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "team",
+							"value": "QA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

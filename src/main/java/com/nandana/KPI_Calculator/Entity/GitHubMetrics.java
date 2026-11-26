@@ -9,17 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "github_metrics")
+@Table(name = "github_metrics",uniqueConstraints = @UniqueConstraint(
+        name = "uk_jira_metrics_employee_year_month",
+        columnNames = {"employee_id", "year", "month"}))
 @Data
 
 public class GitHubMetrics {
 
     @Id
     Integer id ;
-    @Column(unique = true)
-    Integer year  ;
-    @Column(unique = true)
-    Integer month;
     Integer prs_merged ;
     Integer reviews_completed ;
     Integer commits ;

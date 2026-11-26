@@ -6,16 +6,13 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name ="sap_metric")
+@Table(name ="sap_metric",uniqueConstraints = @UniqueConstraint(
+        name = "uk_jira_metrics_employee_year_month",
+        columnNames = {"employee_id", "year", "month"}))
 @Data
 public class SapMetrics {
     @Id
     Integer  id ;
-
-    @Column(unique = true)
-    Integer year ;
-    @Column(unique = true)
-    Integer month ;
     Integer working_days ;
     Integer days_present ;
     Integer approved_leave_days ;

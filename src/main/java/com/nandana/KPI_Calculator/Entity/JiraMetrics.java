@@ -6,16 +6,14 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = " jira_metrics")
+@Table(name = " jira_metrics",uniqueConstraints = @UniqueConstraint(
+        name = "uk_jira_metrics_employee_year_month",
+        columnNames = {"employee_id", "year", "month"}))
 @Data
 public class JiraMetrics {
 
     @Id
     Integer id;
-    @Column(unique = true)
-    Integer year;
-    @Column(unique = true)
-    Integer month ;
     Integer story_points_committed ;
     Integer story_points_completed ;
     Integer issues_resolved ;
