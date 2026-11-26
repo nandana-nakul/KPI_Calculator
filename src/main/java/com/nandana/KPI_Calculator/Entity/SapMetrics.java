@@ -11,14 +11,19 @@ import java.time.LocalDateTime;
 public class SapMetrics {
     @Id
     Integer  id ;
-    Integer employee_id;
+
     @Column(unique = true)
     Integer year ;
+    @Column(unique = true)
     Integer month ;
     Integer working_days ;
     Integer days_present ;
     Integer approved_leave_days ;
     Integer late_check_ins;
     LocalDateTime synced_at;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id" , nullable = false)
+    private Employee employee;
 
 }

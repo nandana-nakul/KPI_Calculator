@@ -12,8 +12,9 @@ public class JiraMetrics {
 
     @Id
     Integer id;
-    Integer employee_id ;
+    @Column(unique = true)
     Integer year;
+    @Column(unique = true)
     Integer month ;
     Integer story_points_committed ;
     Integer story_points_completed ;
@@ -21,5 +22,9 @@ public class JiraMetrics {
     Integer bugs_resolved ;
     Integer  bugs_reopened ;
     LocalDateTime synced_at;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id" , nullable = false)
+    private Employee employee;
 
 }
